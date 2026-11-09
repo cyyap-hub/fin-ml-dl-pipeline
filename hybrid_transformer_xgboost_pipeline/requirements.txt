@@ -1,0 +1,17 @@
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+torch
+torchvision
+yfinance==1.5.2
+xgboost==2.0.3
+pmdarima==2.1.1
+seaborn==0.13.2
+statsmodels==0.14.6
+optuna==3.4
+shap==0.44.0
+scikit-learn==1.3.2
+pandas==2.1.1
+pandas_ta_classic==0.6.52
+scipy==1.17.1
+numpy==1.25.2
+momentfm==0.1.4
