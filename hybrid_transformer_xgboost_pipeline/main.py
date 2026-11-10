@@ -1,12 +1,14 @@
 import torch
 import os
 import argparse
-from src.arima_architecture import arima_model
-from src.xgb_architecture import xgboost_model, hybrid_xgboost_model
-from src.visualisation import close_over_time, ts_decomposition, log_return_distribution, plot_correlation_heatmap, calculate_and_plot_shap, model_learning_curve, predictions_vs_actuals_plot, confusion_matrix_plot, equity_plot
-from src.report import generate_html_report
-from src.transformer_architecture import transformer_extraction
-from src.backtesting import equity_backtest
+import sys
+sys.path.insert(0, os.path.abspath('src'))
+from arima_architecture import arima_model
+from xgb_architecture import xgboost_model, hybrid_xgboost_model
+from visualisation import close_over_time, ts_decomposition, log_return_distribution, plot_correlation_heatmap, calculate_and_plot_shap, model_learning_curve, predictions_vs_actuals_plot, confusion_matrix_plot, equity_plot
+from report import generate_html_report
+from transformer_architecture import transformer_extraction
+from backtesting import equity_backtest
 
 
 def ensure_results():
@@ -16,7 +18,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--ticker", type=str, default="^GSPC")
     parser.add_argument("--start", type=str, default="2000-01-01")
-    parser.add_argument("--end", type=str, default="2026-01-01")
+    parser.add_argument("--end", type=str, default="2026-08-01")
     parser.add_argument("--n-trials", type=int, default=50, help="Number of Hyperparameter trials.")
     parser.add_argument("--model_size", type=str, default="AutonLab/MOMENT-1-small", choices=[
             "AutonLab/MOMENT-1-small",

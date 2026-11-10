@@ -54,9 +54,7 @@ def transformer_extraction(ticker="^GSPC", start_date="2000-01-01", end_date="20
         with torch.no_grad():
             outputs = model(x_enc=batch_tensor)
             embeddings = outputs.embeddings.cpu().numpy()
-
-            embeddings_2d = embeddings.reshape(embeddings.shape[0], -1)
-        return embeddings_2d
+        return embeddings
     # Specifying the MOMENT model variant
     moment_model = setup_moment_model(model_size)
 
@@ -102,3 +100,6 @@ def transformer_extraction(ticker="^GSPC", start_date="2000-01-01", end_date="20
     print(f"Models' Dataframe Shape: {models_df.shape}")
 
     return models_df
+
+if __name__ == "__main__":
+    transformer_extraction()

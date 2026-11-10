@@ -6,19 +6,19 @@ def generate_html_report():
 
     # List of the exact filenames your pipeline has saved
     plots = [
-        {"file": "results/ticker_closing_price.png", "title": "Ticker Closing Price"},
-        {"file": "results/stl_decomposition_plot.png", "title": "Closing Price Time Series Decomposition"},
-        {"file": "results/log_returns_distribution.png", "title": "Log Returns Distribution Comparison"},
-        {"file": "results/tabular_correlation_heatmap.png", "title": "Correlation Heatmap of Features and Target"},
-        {"file": "results/arima_predictions_vs_actuals.png", "title": "ARIMA Predictions vs. Actuals Plot"},
-        {"file": "results/Hybrid_predictions_plot.png", "title": "Hybrid Predictions vs. Actuals Plot"},
-        {"file": "results/XGBoost_predictions_plot.png", "title": "XGBoost Predictions vs. Actuals Plot"},
-        {"file": "results/Hybrid_model_learning_curve.png", "title": "Hybrid Model Learning Curve"},
-        {"file": "results/XGBoost_model_learning_curve.png", "title": "XGBoost Model Learning Curve"},
-        {"file": "results/Hybrid_confusion_matrix.png", "title": "Hybrid Predictions Classification Performance"},
-        {"file": "results/XGBoost_confusion_matrix.png", "title": "XGBoost Predictions Classification Performance"},
-        {"file": "results/shap_summary_plot.png", "title": "SHAP Summary: Feature Impact & Direction"},
-        {"file": "results/total_shap.png", "title": "SHAP Bar Plot: Global Feature Importance"}
+        {"file": "ticker_closing_price.png", "title": "Ticker Closing Price"},
+        {"file": "stl_decomposition_plot.png", "title": "Closing Price Time Series Decomposition"},
+        {"file": "log_returns_distribution.png", "title": "Log Returns Distribution Comparison"},
+        {"file": "tabular_correlation_heatmap.png", "title": "Correlation Heatmap of Features and Target"},
+        {"file": "arima_predictions_vs_actuals.png", "title": "ARIMA Predictions vs. Actuals Plot"},
+        {"file": "Hybrid_predictions_plot.png", "title": "Hybrid Predictions vs. Actuals Plot"},
+        {"file": "XGBoost_predictions_plot.png", "title": "XGBoost Predictions vs. Actuals Plot"},
+        {"file": "Hybrid_model_learning_curve.png", "title": "Hybrid Model Learning Curve"},
+        {"file": "XGBoost_model_learning_curve.png", "title": "XGBoost Model Learning Curve"},
+        {"file": "Hybrid_confusion_matrix.png", "title": "Hybrid Predictions Classification Performance"},
+        {"file": "XGBoost_confusion_matrix.png", "title": "XGBoost Predictions Classification Performance"},
+        {"file": "shap_summary_plot.png", "title": "SHAP Summary: Feature Impact & Direction"},
+        {"file": "total_shap.png", "title": "SHAP Bar Plot: Global Feature Importance"}
     ]
 
     # Start the HTML string with basic CSS for a clean, academic look
@@ -43,7 +43,8 @@ def generate_html_report():
 
     # Loop through the plots and add them to the HTML if the file exists
     for plot in plots:
-        if os.path.exists(plot["file"]):
+        image_path=f"results/{plot['file']}"
+        if os.path.exists(image_path):
             html_content += f"""
             <div class="plot-container">
                 <h2>{plot['title']}</h2>
